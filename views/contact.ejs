@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/42a182743f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <title>Contact</title>
+  </head>
+  <body>
+    <!-- nav -->
+    <%-include('./partials/header.ejs')%>
+
+    <section class="contact">
+      <div class="card-container">
+        <div class="card">
+          <div class="card-header">
+            Portfolio <i class="fa-solid fa-briefcase"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Details about my work</h5>
+            <p class="card-text">
+              Links to all of my projects and details about myself, my
+              background and aspirations
+            </p>
+            <a
+              href="https://victoriamunteanuportfolio.net/"
+              class="btn btn-primary"
+              >Go!</a
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            LinkedIn <i class="fa-brands fa-linkedin"></i></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">My only social media</h5>
+            <p class="card-text">
+              Where I talk about my latest projects, work related victories and
+              more
+            </p>
+            <a
+              href="https://www.linkedin.com/in/victoriamunteanu/"
+              class="btn btn-primary"
+              >Go!</a
+            >
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">GitHub <i class="fa-brands fa-github"></i></div>
+          <div class="card-body">
+            <h5 class="card-title">Where the code is</h5>
+            <p class="card-text">
+              Check out my repositories and the progress I make (almost) daily
+              🙂
+            </p>
+            <a href="https://github.com/vicmoon" class="btn btn-primary">Go!</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

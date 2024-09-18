@@ -1,0 +1,177 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base styles for the body and general layout */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #201e43;
+  color: #333;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.logo {
+  display: block;
+  width: 40px; /* Small size when nav is collapsed */
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  transition: width 0.3s ease; /* Smooth transition for resizing */
+}
+
+/* Sidebar container */
+nav {
+  width: 50px; /* Collapsed width */
+  height: 100vh;
+  background-color: #508c9b;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-top: 20px;
+  overflow: hidden; /* Prevent overflow when collapsed */
+  transition: width 0.3s ease; /* Smooth transition when expanding/collapsing */
+}
+
+/* Expand the sidebar on hover */
+nav:hover {
+  width: 150px; /* Expanded width */
+}
+
+/* Style the nav links */
+nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+nav ul li {
+  margin-bottom: 15px;
+  padding-left: 10px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: aliceblue;
+  padding: 5px;
+  display: block;
+  white-space: nowrap; /* Prevent text from wrapping */
+  opacity: 0; /* Initially hidden text */
+  transition: opacity 0.3s ease; /* Smooth text fade-in */
+}
+
+/* Show the text on hover when the sidebar expands */
+nav:hover ul li a {
+  opacity: 1; /* Text becomes visible */
+}
+
+/* Icon or placeholder to show even when collapsed */
+nav ul li a::before {
+  content: ""; /* Simple icon, you can replace with actual icons */
+  display: inline-block;
+  margin-right: 10px;
+  font-size: 1rem;
+}
+
+nav:hover ul li a::before {
+  content: ""; /* Remove icon on hover */
+}
+
+/* Styling when hovering over the links */
+nav ul li a:hover {
+  background-color: #e6d9a2;
+  width: 100px;
+  border-radius: 5px;
+}
+
+/* Flex Container for Post and Related Posts */
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 160px; /* Space for the nav bar */
+  padding: 20px;
+  width: calc(100% - 160px);
+}
+
+/* Main Post Content - Stretches across the container */
+main {
+  width: calc(100% - 350px);
+  margin-top: 40px; /* Use most of the container, leaving space for related posts */
+}
+
+button {
+  display: flex;
+  justify-content: row;
+  padding: 5px;
+  border-radius: 20px;
+  gap: 5px;
+}
+
+.post-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-image {
+  width: 80%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.post-title {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.post-info {
+  margin-bottom: 20px;
+  color: gray;
+}
+
+.post-body {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* Related Posts Section */
+.related-posts {
+  width: 300px; /* Fixed width for related posts */
+  margin-left: 10px; /* Small gap from the main content */
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.related-posts h2 {
+  color: #ffb84c;
+  margin-bottom: 10px;
+}
+
+.related-post-content {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.related-post-content img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.post-read-more {
+  color: #ffb84c;
+  text-decoration: none;
+  font-size: 1rem;
+}

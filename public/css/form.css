@@ -1,0 +1,224 @@
+/* Browser Default */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  background-color: #201e43 !important;
+  display: flex;
+
+  justify-content: center; /* Center the form horizontally */
+  align-items: center; /* Center the form vertically */
+  padding-left: 200px; /* Ensure space for the sidebar */
+}
+
+/* Form Container */
+.form-container {
+  width: 100%;
+  max-width: 500px;
+  background: #b1afff;
+  margin: auto; /* Center the form horizontally */
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative; /* Ensure the form is correctly placed within the layout */
+}
+
+.form-container.add-post-container {
+  max-width: calc(100% - 150px); /* Full width minus sidebar width */
+  margin-left: 150px;
+  margin-right: 100px; /* Push the form content to the right, next to the sidebar */
+  padding: 30px;
+}
+
+/* Specific Styling for Add Post Form to make it full-width */
+.add-post-container {
+  background-color: aliceblue;
+  max-width: 100%; /* Make the Add Post form stretch across the page */
+  width: 100%;
+  padding: 30px; /* Maintain padding */
+  margin-left: 0; /* Ensure no auto-centering for full-width */
+  margin-right: 0; /* Ensure no auto-centering for full-width */
+}
+
+nav:hover + .add-post-container {
+  max-width: calc(100% - 150px); /* Adjust width when sidebar is expanded */
+  margin-left: 150px; /* Adjust form position when the sidebar expands */
+}
+
+.add-post {
+  width: 100%;
+}
+
+#editor {
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.form-container h1 {
+  text-align: center;
+  margin: 10px;
+  font-size: 1.6rem;
+}
+
+.form-container input {
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 20px;
+  outline: none;
+  margin-bottom: 10px;
+}
+
+.form-container select {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-container textarea {
+  width: 100%;
+  height: 100px;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+}
+
+.form-container input[type="submit"] {
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-container button {
+  color: #fff;
+  cursor: pointer;
+  background: #023047;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.1);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+
+.form-container button:hover {
+  background: #fb8500;
+  transform: scale(1.05);
+  transition: 0.5s;
+}
+
+.form-container button:active {
+  background: #023047;
+  transform: scale(1);
+}
+
+.form-container a {
+  color: #333;
+  text-decoration: none;
+}
+
+.no-account-link {
+  text-align: center;
+  margin-top: 20px;
+  color: indigo;
+}
+
+.form-container .fa-user {
+  color: #333;
+  font-size: 40px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.input-wrapper {
+  margin-bottom: 20px;
+}
+
+.form-container .error {
+  color: red;
+  font-size: 1rem;
+}
+
+.form-container .form-wrapper {
+  width: 100%;
+}
+
+.books-container {
+  max-width: 1500px;
+  margin: auto;
+  padding: 20px;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.book-card {
+  background-color: #ef9c66;
+  padding: 10px;
+  width: 300px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-card h2 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.book-card p {
+  margin-bottom: 10px;
+}
+
+.book-card a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.book-card a:hover {
+  text-decoration: underline;
+}
+
+/* Adjust footer position */
+
+/* Media Queries for small screens */
+@media (max-width: 675px) {
+  body {
+    padding-left: 0; /* Remove padding for smaller screens */
+    justify-content: flex-start; /* Align content at the top */
+  }
+
+  .form-container {
+    margin-top: 10%;
+    width: 90%; /* Adjust form width for smaller screens */
+  }
+
+  footer {
+    width: 100%; /* Footer takes full width on small screens */
+    margin-left: 0; /* No left margin for the sidebar */
+  }
+}

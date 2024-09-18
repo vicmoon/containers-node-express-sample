@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+  </head>
+  <body>
+    <!-- nav -->
+    <%-include('../partials/header.ejs')%>
+
+    <!-- personal details -->
+    <div class="profile-container">
+      <span> 🌛🌜</span>
+
+      <p>
+        Check out the <a href="/contact"> Contact </a> page for other details
+        and ways to stay in touch.
+      </p>
+      <p>
+        Go to the <a href="/signup"> Sign up </a> page to subscribe and get
+        updates.
+      </p>
+      <div class="profile-img">
+        <img src="<%=user?.profileImage%>" alt="profile image" />
+        <!-- upload profile image icon -->
+        <i class="fas fa-camera upload-btn"></i>
+      </div>
+    </div>
+
+    <!-- content -->
+  </body>
+</html>

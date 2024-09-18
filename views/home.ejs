@@ -1,0 +1,62 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Fontawesome -->
+    <script
+      src="https://kit.fontawesome.com/42a182743f.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <!-- nav -->
+    <%-include('./partials/header.ejs')%>
+       <!-- content -->
+       <section class="hero" >
+        <h1> Bits and Scribbles</h1>
+      </section>
+      <div class="latest-post-title">
+        <h2> Latest posts</h2>
+      </div>
+      
+        <section class="posts-hero">
+          <% if (posts && posts.length > 0) { %> 
+            <% posts.forEach(post => { %>
+          <article class="post-content">
+            <img src="<%= post.image %>" alt="post image" class="post-image" />
+            <p class="post-info">
+              <span class="post-date">
+                <p id="date">
+                  <%= post.createdAt.toLocaleDateString() %>
+                </p>
+              </span>
+            </p>
+            <a href="/api/v1/posts/<%= post._id %>" class="post-read-more"
+              ><h1 class="post-title"><%= post.title %></h1></a
+              >
+            <p class="post-body"><%-truncatePost(post.description)%></p>
+            <!-- Category Badge -->
+            <div class="post-category">
+              <span><%= post.category %></span>
+            </div>
+            <!-- <a href="/api/v1/posts/<%= post._id %>" class="post-read-more"
+              >Continue Reading...</a
+            > -->
+          </article>
+          <% }) %> <% } else { %>
+          <p>No posts available.</p>
+          <% } %>
+        </section>
+     
+        <%-include('./partials/footer.ejs')%>
+    </div>
+  </body>
+</html>
+

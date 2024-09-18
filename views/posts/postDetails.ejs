@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/postDetails.css" />
+    <title>Post Details</title>
+  </head>
+  <body>
+    <!-- Fixed Nav Bar -->
+    <header class="header">
+      <nav>
+        <a href="/"><img src="/images/victoria.jpg" class="logo" /></a>
+        <ul class="menu">
+          <%if(userAuth){ %>
+          <li class="nav-item home">
+            <a href="/">Home</a>
+          </li>
+          <li class="nav-item home">
+            <a href="/api/v1/users/login">Login</a>
+          </li>
+          <li class="nav-item home">
+            <a href="/api/v1/users/logout">Logout</a>
+          </li>
+          <li class="nav-item home">
+            <a href="/api/v1/users/register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/v1/posts/add-post">New Post</a>
+          </li>
+          <li class="nav-item">
+            <a href="/api/v1/posts/">Blog</a>
+          </li>
+          <!-- <li class="nav-item"><a href="/api/v1/paintings">Paintings</a></li> -->
+
+          <% } else { %>
+          <li class="nav-item home"><a href="/">Home</a></li>
+          <div class="nav-right">
+            <!-- <li class="nav-item">
+              <a href="/api/v1/users/profile-page">About</a>
+            </li> -->
+            <li class="nav-item"><a href="/api/v1/posts/">Blog</a></li>
+            <li class="nav-item"><a href="/api/v1/resources">Links</a></li>
+            <li class="nav-item">
+              <a href="/api/v1/signup">Newsletter</a>
+            </li>
+            <li class="nav-item"><a href="/contact">Contacts</a></li>
+            <!-- <li class="nav-item home">
+              <a href="/api/v1/users/register">Register</a>
+            </li>
+            <li class="nav-item home">
+              <a href="/api/v1/users/login">Login</a>
+            </li> -->
+
+            <% } %>
+          </div>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Main Container for Post Content and Related Posts -->
+    <div class="container-flex">
+      <!-- Main Post Content -->
+      <main class="posts">
+        <article class="post-content">
+          <img src="<%= post.image %>" alt="Post image" class="post-image" />
+          <h1 class="post-title"><%= post.title %></h1>
+          <p class="post-info">
+            <span class="post-date"
+              ><%= post.createdAt.toLocaleDateString() %></span
+            >
+          </p>
+          <p class="post-body"><%- post.description %></p>
+        </article>
+        <!-- Debugging output -->
+        <!-- <p>Post user ID: <%= post.user ? post.user._id : 'No user found' %></p>
+        <p>
+          Logged-in user ID: <%= userAuth ? userAuth : 'No user logged in' %>
+        </p> -->
+
+        <!-- Only show buttons if the logged-in user created the post -->
+        <% if (post.user && post.user._id && userAuth &&
+        post.user._id.toString() === userAuth.toString()) { %>
+        <form
+          action="/api/v1/posts/<%= post._id %>?_method=DELETE"
+          method="post"
+        >
+          <button>Delete</button>
+        </form>
+        <a href="/api/v1/posts/updatePost/<%= post._id %>"
+          ><button>Update</button></a
+        >
+        <% } %>
+      </main>
+
+      <!-- Related Posts Section -->
+      <section class="related-posts">
+        <h2>Related in: <%= post.category %></h2>
+
+        <% if (relatedPosts && relatedPosts.length > 0) { %> <%
+        relatedPosts.forEach(function(relatedPost) { %>
+        <article class="related-post-content">
+          <img
+            src="<%= relatedPost.image %>"
+            alt="Related post image"
+            class="post-image"
+          />
+          <h3><%= relatedPost.title %></h3>
+          <a href="/api/v1/posts/<%= relatedPost._id %>" class="post-read-more"
+            >Read</a
+          >
+        </article>
+        <% }); %> <% } else { %>
+        <p>No related posts available in this category.</p>
+        <% } %>
+      </section>
+    </div>
+  </body>
+</html>
